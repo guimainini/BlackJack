@@ -15,6 +15,7 @@ let puntosJugador = 0, puntosComputadora = 0;
 
 const btnPedir = document.querySelector('#btnPedir');
 const btnDetener = document.querySelector('#btnDetener');
+const btnNuevo = document.querySelector('#btnNuevo');
 const puntosHTML = document.querySelectorAll('small');
 
 const divCartasJugados     = document.querySelector('#jugador-cartas');
@@ -39,8 +40,8 @@ const crearDeck = () => {
     return deck;
 }
 
-crearDeck();
-
+deck = crearDeck();
+console.log(deck);
 //esta funcion me da una carta
 
 const pedirCarta = () => {
@@ -92,17 +93,23 @@ const turnoCompu = ( puntosMinimos ) => {
             break;
         }
 
-
-
     }while( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21)  );
 
 
+    setTimeout(() => {
+        if( (puntosComputadora === puntosMinimos)){
+            alert('Nadie Gana :(');
+        }else if((puntosMinimos > 21)) {
+            alert('Compu Gano');
+        }else if( puntosComputadora > 21 ){
+            alert('Jugador Gana');
+        } else {
+            alert('Computadora Gano');
+        }
+        
+    }, 10);
 
 }
-
-
-
-
 //Eventos
 btnPedir.addEventListener('click', () => {
     
@@ -129,12 +136,27 @@ btnPedir.addEventListener('click', () => {
     }
 });
 
-
 btnDetener.addEventListener('click', () => {
     btnPedir.disabled = true;
     btnDetener.disabled = true;
     turnoCompu(puntosJugador);
-
 })
 
+btnNuevo.addEventListener('click', () => {
+    console.clear();
+    deck = [];
+    deck = crearDeck();
+    console.log(deck);
+    
+    puntosJugador     = 0;
+    puntosComputadora = 0;
+    puntosHTML[0].innerText = 0;
+    puntosHTML[1].innerText = 0;
 
+    divCartasComputadora.innerHTML = '';
+    divCartasJugados.innerHTML = '';
+
+    btnPedir.disabled = false;
+    btnDetener.disabled = false;
+
+})
