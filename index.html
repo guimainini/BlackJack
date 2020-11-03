@@ -16,8 +16,8 @@
     <div class="row mt-2" >
         <div  id="divBotones" class="col text-center" >
             <button id="btnNuevo" class="btn btn-danger" >Nuevo Juego</button>
-            <button id="btnPedir" class="btn btn-primary" >Pedir carta</button>
-            <button id="btnDetener" class="btn btn-primary" >Detener</button>
+            <button id="btnPedir" disabled="disabled" class="btn btn-primary" >Pedir carta</button>
+            <button id="btnDetener" disabled="disabled" class="btn btn-primary" >Detener</button>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
         <div clas="col" >
 
             <h1>Jugados 1 - <small>0</small></h1>
-            <div id="jugador-cartas" >
+            <div id="jugador-cartas" class="divCartas">
                 <!-- <img  class="carta" src="assets/cartas/10C.png" alt=""> -->
                 
             </div>
@@ -37,7 +37,7 @@
         <div clas="col" >
 
             <h1>Computadora - <small>0</small></h1>
-            <div id="computadora-cartas" >
+            <div id="computadora-cartas" class="divCartas">
                 <!-- <img  class="carta" src="assets/cartas/2C.png" alt=""> -->
     
             </div>
@@ -48,5 +48,12 @@
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
     <!-- <script src=" assets/js/underscore-min.js " ></script> -->
     <script src=" assets/js/juego.js " ></script>
+
+    <script>
+        // inicializarJuego();
+        miModulo.nuevoJuego();
+    </script>
+
+
 </body>
 </html>
