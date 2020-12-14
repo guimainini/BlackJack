@@ -149,11 +149,11 @@ const miModulo = (() => {
         turnoComputadora( puntosJugadores[0] );
     });
 
-    // btnNuevo.addEventListener('click', () => {
+    btnNuevo.addEventListener('click', () => {
         
-    // inicializarJuego();
+    inicializarJuego();
 
-    // });
+    });
 
 
     return {
